@@ -23,6 +23,7 @@ const generateFolderContents = (depth = 3, min = 1, max = 3) => {
 }
 
 const app = express()
+app.set('json spaces', 2)
 
 app.get('/', (req, res) => {
   res.json({ data: generateFolderContents()})
