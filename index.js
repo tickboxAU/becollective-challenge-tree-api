@@ -1,7 +1,7 @@
 const express = require('express')
 const faker = require('faker')
 
-const generateFolderContents = (depth = 3, min = 1, max = 3) => {
+const generateFolderContents = (depth = 4, min = 1, max = 5) => {
   if (depth === 0) {
     return []
   }
