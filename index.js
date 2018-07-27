@@ -1,6 +1,8 @@
 const express = require('express')
 const faker = require('faker')
 
+const MAX_FILE_SIZE = 100000
+
 const generateFolderContents = (depth = 4, min = 1, max = 5) => {
   if (depth === 0) {
     return []
@@ -16,7 +18,8 @@ const generateFolderContents = (depth = 4, min = 1, max = 5) => {
     } else {
       return {
         type: 'file',
-        name: faker.hacker.noun()
+        name: faker.system.commonFileName(),
+        size: Math.floor(Math.random() * MAX_FILE_SIZE)
       }
     }
   })
