@@ -28,6 +28,16 @@ const generateFolderContents = (depth = 4, min = 1, max = 5) => {
 const app = express()
 app.set('json spaces', 2)
 
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*")
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
+  next()
+})
+
+app.options('/', (req, res) => {
+  res.status(200).send('OK')
+})
+
 app.get('/', (req, res) => {
   res.json({ data: generateFolderContents()})
 })
