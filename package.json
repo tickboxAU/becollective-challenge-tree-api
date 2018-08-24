@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "deploy": "which now > /dev/null || ( echo 'you should install now (from zeit) globally'; exit 1 ) && now"
   },
   "author": "",
   "license": "UNLICENSED",
