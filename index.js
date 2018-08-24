@@ -39,7 +39,12 @@ app.options('/', (req, res) => {
 })
 
 app.get('/', (req, res) => {
-  res.json({ data: generateFolderContents()})
+  if (Math.random() > 0.1) {
+    res.json({ data: generateFolderContents()})
+  }
+  else {
+    res.status(500).json({ error: `Error: failure in ${faker.company.bs()}` })
+  }
 })
 
 app.get('/*', (req, res) => res.redirect('/'))
